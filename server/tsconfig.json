@@ -1,44 +1,23 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
-
-    // Environment Settings
-    // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
-
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-  }
+    "target": "ES6", // Modern JavaScript output (ES6+)
+    "module": "CommonJS", // For Node.js backend (Express)
+    "lib": ["DOM", "ES6"], // DOM for React, ES6 features
+    "jsx": "react-jsx", // React JSX support (new JSX transform)
+    "moduleResolution": "node", // Node.js-style module resolution
+    "esModuleInterop": true, // Default import for CommonJS modules (e.g express)
+    "forceConsistentCasingInFileNames": true,
+    "strict": true, // Enable strict type checking
+    "skipLibCheck": true, // Skip type checking of node_modules libs to speed up compilation
+    "noImplicitAny": true, // Warn if any implicit any types found
+    "allowJs": true, // Allow JavaScript files in the project
+    "resolveJsonModule": true, // Allows importing JSON files
+    "outDir": "./dist", // Output folder for backend transpiled code
+    "rootDir": "./src", // Root folder for source typescript files
+    "sourceMap": true, // Useful for debugging (TS <-> JS mapping),
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
