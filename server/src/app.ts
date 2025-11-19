@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 
 import cors from "cors";
 import { connectDB } from "./config/connectDatabase";
-import useUsers from "./routes/user.route";
+import { userRouter, productRouter } from "./routes";
 
 const app = express();
 
@@ -17,5 +17,7 @@ app.use(
 
 app.use(express.json());
 
-app.use("/api/v1/users", useUsers);
+app.use("/api/v1/users", userRouter);
+app.use("/api/v1/products", productRouter);
+
 export default app;

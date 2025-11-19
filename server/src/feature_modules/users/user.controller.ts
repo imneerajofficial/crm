@@ -15,7 +15,7 @@ export const createUser = async (req: Request, res: Response) => {
     const { email } = userData;
     const checkExist = await checkExistUser(email);
     if (checkExist)
-      return sendSuccess(
+      return sendError(
         res,
         checkExist,
         "User already exist with this email",
@@ -47,7 +47,7 @@ export const getUserById = async (req: Request, res: Response) => {
     const userId = req.params.id;
     const userData = await getDataByIdService(userId);
     if (userData) return sendSuccess(res, userData, "User record found", 200);
-    return sendError(res, {}, "unable to find user", 404);
+    return sendError(res, {}, "no record found", 404);
   } catch (error: any) {
     return sendError(res, error, error.message, 500);
   }

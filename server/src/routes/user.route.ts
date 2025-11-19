@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import {
   createUser,
   updateUser,
@@ -7,12 +8,9 @@ import {
   getUserById,
 } from "../feature_modules/users/user.controller";
 
-const useUsers = Router();
-
-useUsers.get("/", getAllUsers);
-useUsers.post("/", createUser);
-useUsers.put("/:id", updateUser);
-useUsers.get("/:id", getUserById);
-useUsers.delete("/:id", deleteUser);
-
-export default useUsers;
+export const userRouter = Router();
+userRouter.get("/", getAllUsers);
+userRouter.post("/", createUser);
+userRouter.put("/:id", updateUser);
+userRouter.get("/:id", getUserById);
+userRouter.delete("/:id", deleteUser);
